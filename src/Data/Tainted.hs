@@ -12,7 +12,7 @@
 -----------------------------------------------------------------------------
 
 module Data.Tainted 
-    (Tainted, isClean, isDirty, cleans, dirtys, partitionTaints)
+    (Tainted(..), isClean, isDirty, cleans, dirtys, partitionTaints)
 
 where
 
