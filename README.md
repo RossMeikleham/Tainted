@@ -17,7 +17,7 @@ expression as impure.
 A simple example given here is a expression evaluator which is given
 values from different sources which are marked as pure or impure.
 
-``Haskell`
+```Haskell
 module TaintExample where
 
 import Data.Tainted
