@@ -65,9 +65,9 @@ so the expression evaluates to dirty value of 8
 
 
 Evaluating expr3:
-```
-Number (Dirty 15)
 ```Haskell
+Number (Dirty 15)
+```
 This shows the propogation of dirty states, as the inner expression
 evaluates to a dirty value, then added with a clean value still
 gives a dirty value.
