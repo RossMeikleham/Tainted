@@ -1,8 +1,10 @@
 # Tainted
 Tainted type, and associated operations 
 
-A Tainted type is, a value starts off clean and once an operation
-which causes it to become dirty, and further operation keeps it dirty.
+A Tainted type contains either a clean or dirty value. Values which are
+clean stay clean as long as an operation performed on them results
+in a clean value. If combined with a dirty value, this taints the value
+causing it to become dirty, and any further operation keeps it dirty.
 This is similar to the Maybe monad except once the dirty has been
 reached, calculations can still be performed on the value it contains.
 
@@ -15,7 +17,7 @@ expression as impure.
 A simple example given here is a expression evaluator which is given
 values from different sources which are marked as pure or impure.
 
-```
+``Haskell`
 module TaintExample where
 
 import Data.Tainted
@@ -48,14 +50,14 @@ reducedExpr3 = evalExpr expr3
 ```
 
 Evaluating expr1:
-```
+```Haskell
 Number (Clean 10)
 ```
 Adding 2 clean values 7 and 3 gives a clean value, clean
 values haven't become tainted
 
 Evaluating expr2:
-```
+```Haskell
 Number (Dirty 8)
 ```
 Adding a clean value 3 and dirty value 5 taints the expression as dirty
@@ -65,7 +67,7 @@ so the expression evaluates to dirty value of 8
 Evaluating expr3:
 ```
 Number (Dirty 15)
-```
+```Haskell
 This shows the propogation of dirty states, as the inner expression
 evaluates to a dirty value, then added with a clean value still
 gives a dirty value.
