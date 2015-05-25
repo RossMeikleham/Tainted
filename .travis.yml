@@ -1,0 +1,8 @@
+language: haskell
+
+env:
+ - GHCVER=7.10.1
+ 
+before_install:
+ - cabal configure
+ - cabal install

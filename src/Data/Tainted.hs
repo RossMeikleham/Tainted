@@ -19,6 +19,14 @@ where
 import Control.Monad
 import Data.Typeable
 
+
+-- | The 'Tainted' type encapsulates a value.  A value of type
+-- @'Tainted' a@ either contains a "clean" value of type @a@ (represented as @'Clean' a@), 
+-- or it contains a "dirty" value of type @a@ (represented as @'Dirty' a@).  
+--
+-- The 'Tainted' type is also a monad. Once the "dirty" state has been
+-- reached, and clean operations performed themselves create a "dirty"
+-- value. 
 data Tainted a = Dirty a | Clean a
     deriving (Eq, Ord, Read, Show, Typeable)
 
@@ -85,14 +93,6 @@ instance Monad Tainted where
 -- ---------------------------------------------------------------------------
 -- The Tainted type, and instances
 
--- | The 'Tainted' type encapsulates a value.  A value of type
--- @'Tainted' a@ either contains a clean value of type @a@ (represented as @'Clean' a@), 
--- or it contains a dirty value of type @a@ (represented as @'Dirty' a@).  
---
--- The 'Tainted' type is also a monad. Once the "dirty" state has been
--- reached, and clean operations performed themselves create a "dirty"
--- value. 
-
 
 -- | Returns 'True' iff its argument is of the form 'Clean _.
 isClean :: Tainted a -> Bool
@@ -129,4 +129,4 @@ partitionTaints ts = (c, d)
 -- | Extract the value contained in a 'Tainted' type
 extractTaint :: Tainted a -> a
 extractTaint (Clean a) = a
-extractTains (Dirty a) = a
+extractTaint (Dirty a) = a
