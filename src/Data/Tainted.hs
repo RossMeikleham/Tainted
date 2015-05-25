@@ -16,8 +16,6 @@ module Data.Tainted
 
 where
 
---Tainted Monad
-
 import Control.Monad
 import Data.Typeable
 
@@ -84,19 +82,16 @@ instance Monad Tainted where
     Clean x  >>= f = f x
 
 
---TODO write own
 -- ---------------------------------------------------------------------------
--- The Maybe type, and instances
+-- The Tainted type, and instances
 
--- | The 'Maybe' type encapsulates an optional value.  A value of type
--- @'Maybe' a@ either contains a value of type @a@ (represented as @'Just' a@), 
--- or it is empty (represented as 'Nothing').  Using 'Maybe' is a good way to 
--- deal with errors or exceptional cases without resorting to drastic
--- measures such as 'error'.
+-- | The 'Tainted' type encapsulates a value.  A value of type
+-- @'Tainted' a@ either contains a clean value of type @a@ (represented as @'Clean' a@), 
+-- or it contains a dirty value of type @a@ (represented as @'Dirty' a@).  
 --
--- The 'Maybe' type is also a monad.  It is a simple kind of error
--- monad, where all errors are represented by 'Nothing'.  A richer
--- error monad can be built using the 'Data.Either.Either' type.
+-- The 'Tainted' type is also a monad. Once the "dirty" state has been
+-- reached, and clean operations performed themselves create a "dirty"
+-- value. 
 
 
 -- | Returns 'True' iff its argument is of the form 'Clean _.
