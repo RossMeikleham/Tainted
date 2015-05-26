@@ -21,6 +21,7 @@ values from different sources which are marked as pure or impure.
 module TaintExample where
 
 import Data.Tainted
+import Control.Monad
 
 data Expr = 
       Number (Tainted Int)
@@ -41,7 +42,7 @@ evalExpr :: Expr -> Expr
 evalExpr (Number n) = Number n
 evalExpr (Add e1 e2) = 
     case (evalExpr e1, evalExpr e2) of
-        (Number i, Number j) -> Number $ (+) <$> i <*> j
+        (Number i, Number j) -> Number $ liftM2 (+) i j
         (x, y) -> Add x y
 
 reducedExpr1 = evalExpr expr1
