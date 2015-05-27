@@ -4,7 +4,6 @@
 name:                Tainted
 version:             0.1.0.1
 synopsis:            Tainted type, and associated operations
-description:            Tainted type, and associated operations
 homepage:            https://github.com/RossMeikleham/Tainted
 license:             BSD3
 license-file:        LICENSE
@@ -18,15 +17,16 @@ extra-source-files:
     .gitignore
     .travis.yml
     README.md
-description:
-    
-A Tainted type contains either a clean or dirty value. Values which are
-clean stay clean as long as an operation performed on them results
-in a clean value. If combined with a dirty value, the value becomes
-tainted as dirty and remains that way through further operations.
 
-This package Contains implementations of the Tainted Monad as well as
-TaintedT (the Tainted Monad Transformer).
+description:    
+    A Tainted type contains either a clean or dirty value. Values which are
+    clean stay clean as long as an operation performed on them results
+    in a clean value. If combined with a dirty value, the value becomes
+    tainted as dirty and remains that way through further operations.
+   
+    This package contains implementations of the Tainted Monad as well as
+    TaintedT (the Tainted Monad Transformer), as well as examples of using
+    each of them.
 
 
 source-repository head 
