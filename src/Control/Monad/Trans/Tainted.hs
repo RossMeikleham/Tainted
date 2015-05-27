@@ -17,6 +17,7 @@ where
 
 import Control.Monad
 import Control.Monad.Trans
+import Control.Applicative
 import Data.Tainted
 
 -- | 'TaintedT' is a monad transformed of 'Tainted'
