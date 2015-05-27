@@ -1,3 +1,5 @@
+
+{-# LANGUAGE DeriveDataTypeable #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Control.Monad
@@ -13,7 +15,6 @@
 
 module Data.Tainted 
     (Tainted(..), isClean, isDirty, cleans, dirtys, partitionTaints)
-
 where
 
 import Control.Monad
