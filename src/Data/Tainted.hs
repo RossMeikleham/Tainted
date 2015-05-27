@@ -17,6 +17,7 @@ module Data.Tainted
 where
 
 import Control.Monad
+import Control.Applicative
 import Data.Typeable
 
 
