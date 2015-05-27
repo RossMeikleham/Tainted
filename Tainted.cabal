@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                Tainted
-version:             0.1.0.1
+version:             0.1.0.2
 synopsis:            Tainted type, and associated operations
 homepage:            https://github.com/RossMeikleham/Tainted
 license:             BSD3
@@ -17,6 +17,8 @@ extra-source-files:
     .gitignore
     .travis.yml
     README.md
+    examples/TaintedExample.hs
+    examples/TransExample.hs
 
 description:    
     A Tainted type contains either a clean or dirty value. Values which are
