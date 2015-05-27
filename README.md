@@ -7,8 +7,8 @@ A Tainted type contains either a clean or dirty value. Values which are
 clean stay clean as long as an operation performed on them results
 in a clean value. If combined with a dirty value, the value becomes
 tainted as dirty and remains that way through further operations.
-This is similar to the Maybe monad except once the dirty has been
-reached, calculations can still be performed on the value it contains.
+This is similar to the Maybe monad except once a dirty state has been
+reached, calculations can still be performed on the value contained within.
    
 This package contains implementations of the Tainted Monad,
 TaintedT (the Tainted Monad Transformer), and some examples.
