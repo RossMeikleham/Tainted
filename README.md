@@ -1,4 +1,6 @@
 # Tainted
+[![travis](https://travis-ci.org/RossMeikleham/Tainted.svg?branch=master)](https://travis-ci.org/RossMeikleham/Tainted) [![hackage](https://img.shields.io/badge/Hackage-v0.1.0.1-orange.svg)](http://hackage.haskell.org/package/Tainted)
+
 Tainted type, and associated operations 
 
 A Tainted type contains either a clean or dirty value. Values which are
