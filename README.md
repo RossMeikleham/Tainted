@@ -1,14 +1,18 @@
 # Tainted
-[![travis](https://travis-ci.org/RossMeikleham/Tainted.svg?branch=master)](https://travis-ci.org/RossMeikleham/Tainted) [![hackage](https://img.shields.io/badge/Hackage-v0.1.0.1-orange.svg)](http://hackage.haskell.org/package/Tainted)
+[![travis](https://travis-ci.org/RossMeikleham/Tainted.svg?branch=master)](https://travis-ci.org/RossMeikleham/Tainted) [![hackage](https://img.shields.io/badge/Hackage-v0.1.0.2-orange.svg)](http://hackage.haskell.org/package/Tainted)
 
 Tainted type, and associated operations 
 
 A Tainted type contains either a clean or dirty value. Values which are
 clean stay clean as long as an operation performed on them results
-in a clean value. If combined with a dirty value, this taints the value
-causing it to become dirty, and any further operation keeps it dirty.
+in a clean value. If combined with a dirty value, the value becomes
+tainted as dirty and remains that way through further operations.
 This is similar to the Maybe monad except once the dirty has been
 reached, calculations can still be performed on the value it contains.
+   
+This package contains implementations of the Tainted Monad,
+TaintedT (the Tainted Monad Transformer), and some examples.
+
 
 One use case is evaluating whether expressions are pure from multiple
 sources combining impure and pure values. This can be useful for
