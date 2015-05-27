@@ -27,7 +27,7 @@ newtype TaintedT m a = TaintedT {runTainted :: m (Tainted a)}
 instance (Monad m, Functor m) => Functor (TaintedT m) where
     fmap f = TaintedT . fmap (fmap f) . runTainted
 
-instance Monad m => Applicative (TaintedT m) where
+instance (Monad m, Functor m) => Applicative (TaintedT m) where
     pure = return
     (<*>) = ap
 
