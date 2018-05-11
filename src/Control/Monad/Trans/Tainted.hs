@@ -42,9 +42,9 @@ instance Monad m => Monad (TaintedT m) where
                     -- Ensure Dirty stays Dirty
                     res <- runTainted $ f t
                     return $ case res of
-                        Clean u -> Dirty u 
+                        Clean u -> Dirty u
                         d       -> d
-                                
+
 
 instance MonadTrans TaintedT where
     lift = TaintedT . liftM return
