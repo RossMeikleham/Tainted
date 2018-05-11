@@ -90,6 +90,13 @@ instance Monad Tainted where
                         y -> y
     Clean x  >>= f = f x
 
+instance Foldable Tainted where
+  foldMap f (Dirty a) = f a
+  foldMap f (Clean a) = f a
+
+instance Traversable Tainted where
+  traverse f (Dirty a) = Dirty <$> f a
+  traverse f (Clean a) = Clean <$> f a
 
 -- ---------------------------------------------------------------------------
 -- The Tainted type, and instances
